@@ -1,0 +1,10 @@
+indices:
+  wkndsite:
+    include:
+      - /magazine/**
+    target: /query-index.json
+    properties:
+       title:
+        select: main > div > div > p
+        value: |
+          match(el, 'by (.*)')
