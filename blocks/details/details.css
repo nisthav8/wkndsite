@@ -29,15 +29,7 @@
     color:#202020;
     line-height:2.5;
 }
-/* .yellow-container{
-    background-color:#ffea00;
-    width:50px;
-    height:2px;
-    margin-left:0;
-    padding-left:0;
-    float:left;  
-   
-} */
+
 .details{
     display: grid;
     grid-template-columns: 1fr;

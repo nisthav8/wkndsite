@@ -4,7 +4,7 @@ indices:
       - /magazine/all-magazine/**
     target: /query-index.json
     properties:
-       title:
-        selectFirst: main > div > div > p
+       description:
+        selectFirst: main
         value: |
-          textContent(el)
+          match(el, 'by (.*)')
