@@ -1,7 +1,7 @@
 indices:
   wkndsite:
     include:
-      - /magazine/**
+      - /magazine/all-magazine/**
     target: /query-index.json
     properties:
        title:
