@@ -5,6 +5,6 @@ indices:
     target: /query-index.json
     properties:
        title:
-        select: main > div > div > p
+        selectFirst: main > div > div > p
         value: |
-          match(el, 'by (.*)')
+          textContent(el)
