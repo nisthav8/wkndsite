@@ -9,17 +9,20 @@ main > .section:nth-of-type(1){
 
 @media (width >=900px) {
 
-    main > .section:nth-of-type(1){
-        margin-right:6px;
+ 
+   main > .section:nth-of-type(1){
+    margin-right:6px;
+   
+    }
+    main > .section:nth-of-type(1) img{
+        width:1900px;
+          }
        
-        }
-        main > .section:nth-of-type(1) img{
-            width:1900px;
-              }
-    .flex-parent-container > .western-australia-container {
+    .flex-parent-container > .ski-touring-container {
        margin-left:2rem;
     }
 }
+
 
 .section:nth-of-type(1) > div:nth-of-type(1) > ul {
     list-style-type: none;
@@ -39,7 +42,7 @@ main > .section:nth-of-type(1){
     padding-right: 10px;
 }
 
-#western-australia-by-camper-van {
+#ski-touring-by-camper-van {
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: var(--fontWeightNormal, normal);
     margin-bottom: 13.5px;
@@ -47,29 +50,29 @@ main > .section:nth-of-type(1){
     font-size: 40px;
 }
 
-#by-sofia-sjöberg {
+#by-jacob-wester {
     font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
     font-weight: var(--fontWeightBold, 600);
     font-size: 1pc;
 }
 
-.western-australia-container  p {
+.ski-touring-container  p {
     font-size: 18px;
     line-height: 2.5;
     margin: 0 0 13.5px;
 }
 
-.western-australia-container p strong {
+.ski-touring-container p strong {
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-size: 36px;
     line-height: 0;
 }
 
-.western-australia-container > .default-content-wrapper > p:nth-of-type(5) strong {
+.ski-touring-container > .default-content-wrapper > p:nth-of-type(5) strong {
     font-size: 15px;
 }
 
-.western-australia > h2 {
+.ski-touring  h2 {
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: var(--fontWeightNormal, normal);
     margin-bottom: 13.5px;
@@ -77,8 +80,8 @@ main > .section:nth-of-type(1){
     font-size: 36px;
 }
 
-.western-australia h2:after,
-.western-australia-container .default-content-wrapper p:nth-of-type(4):after {
+.ski-touring h2:after,
+.ski-touring-container .default-content-wrapper p:nth-of-type(4):after {
     border-bottom: 2px solid var(--brandPrimary, #ffea00);
     content: "";
     display: block;
@@ -86,28 +89,28 @@ main > .section:nth-of-type(1){
     width: 84px;
 }
 
-.western-australia-container>.default-content-wrapper>p:nth-of-type(2) {
-    background-color: #ebebeb;
+.ski-touring-container>.default-content-wrapper>p:nth-of-type(2) {
+    /* background-color: #ebebeb; */
     margin: 0;
     padding: 20px;
     font-weight: normal;
 }
 
-.western-australia-container>.default-content-wrapper>p:nth-of-type(3) {
-    background-color: #ebebeb;
+.ski-touring-container>.default-content-wrapper>p:nth-of-type(3) {
+    /* background-color: #ebebeb; */
     margin: 0;
     padding: 20px;
     font-weight: normal;
 }
 
-.western-australia-container>.default-content-wrapper>p:nth-of-type(4) {
-    background-color: #ebebeb;
+.ski-touring-container>.default-content-wrapper>p:nth-of-type(4) {
+    /* background-color: #ebebeb; */
     margin: 0;
     padding: 20px;
     font-weight: normal;
 }
 
-.western-australia-container>div:nth-of-type(3)>p:nth-of-type(1)>picture>img {
+.ski-touring-container>div:nth-of-type(3)>p:nth-of-type(1)>picture>img {
     border-radius: 50%;
     width: 64px;
     height: 64px;
@@ -116,7 +119,7 @@ main > .section:nth-of-type(1){
     justify-content: center;
 }
 
-#sofia-sjöberg {
+#jacob-wester {
     font-size: 17px;
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: normal;
@@ -128,7 +131,7 @@ main > .section:nth-of-type(1){
    
 }
 
-.western-australia-container>div:nth-of-type(3)>h6 {
+.ski-touring-container>div:nth-of-type(3)>h6 {
     font-size: 10px;
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: normal;
@@ -140,7 +143,7 @@ main > .section:nth-of-type(1){
 
 }
 
-.western-australia-container>div:nth-of-type(3)>p:nth-of-type(2) {
+.ski-touring-container>div:nth-of-type(3)>p:nth-of-type(2) {
     display: flex;
     justify-content: center;
     background-color: #202020;
@@ -151,7 +154,7 @@ main > .section:nth-of-type(1){
     padding:0;
 }
 
-.western-australia-container>div:nth-of-type(3)>p:nth-of-type(2)>picture>img {
+.ski-touring-container>div:nth-of-type(3)>p:nth-of-type(2)>picture>img {
     width: 22px;
     height: 22px;
     padding: 12px;
@@ -210,7 +213,7 @@ ol {
     background-color: #ffea00;
 }
 
-.western-australia-wrapper:after {
+.ski-touring-wrapper:after {
     border-bottom: 2px solid var(--brandPrimary, #e5e5e3);
     content: "";
     display: block;
@@ -221,7 +224,7 @@ ol {
 
 @media (width >=1025px) {
 
-    .western-australia-container>div:nth-of-type(3)>p:nth-of-type(2) {
+    .ski-touring-container>div:nth-of-type(3)>p:nth-of-type(2) {
          float: right; 
          margin-top:-60px;
 

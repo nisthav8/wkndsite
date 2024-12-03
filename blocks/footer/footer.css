@@ -4,6 +4,12 @@ footer {
   font-size: 11px;
   line-height:1.25;
 }
+.footer-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logo-list{
   display: flex;
 }
@@ -91,6 +97,7 @@ footer a{
   text-decoration: underline;
 }
 @media (width >= 1024px) {
+
    .logo-list ul{
     display: flex;
     flex-direction: row;
@@ -107,4 +114,7 @@ footer a{
   margin-left:15px;
   margin-right:15px;
  }
+
 }
+
+  
