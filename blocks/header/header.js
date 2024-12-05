@@ -165,3 +165,153 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 }
+
+
+// Create a style tag for CSS
+const style = document.createElement("style");
+style.textContent = `
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+    width:auto; /* Adjust width as needed */
+   background-color: #ebebeb8a;
+    z-index:10;
+    position:fixed;
+     margin-right:24px;
+     right:5px;
+      top:22px;
+      font-size:14px;
+      max-width:10rem;
+      box-sizing: border-box;
+  }
+      
+   .search-container:focus-within{
+   background-color:white;
+ border: 1px solid black;
+}
+  .search-icon {
+    background-color:#ebebeb8a;
+    padding: 8px 0px 8px 3px;
+    box-sizing: border-box;
+    
+     z-index:11;
+  }
+  .search-input {
+  box-sizing:border-box;
+    padding: 8px;
+    border:none;
+    flex: 1;
+  outline: none;
+     z-index:10;
+    //  width:2%;
+     background-color:#ebebeb8a;
+     max-width:8rem;
+      box-sizing: border-box;
+  }
+       .clear-icon {
+    
+    cursor: pointer;
+    z-index:11;
+    margin-right:4px;
+    color: black;
+    width:30px;
+font-size:20px;
+ box-sizing: border-box;
+    display: none; /* Hidden by default */
+  }
+  
+`;
+document.head.appendChild(style);
+
+// Create search container dynamically
+const searchContainer = document.createElement("div");
+searchContainer.className = "search-container";
+
+// Create search icon
+const searchIcon = document.createElement("div");
+searchIcon.className = "search-icon";
+searchIcon.innerHTML = "&#x1F50E;&#xFE0E;";
+
+// Create search input
+const input = document.createElement("input");
+input.type = "text";
+input.placeholder = "SEARCH";
+input.className = "search-input";
+
+
+// Create clear icon
+const clearIcon = document.createElement("span");
+clearIcon.className = "clear-icon";
+clearIcon.innerHTML = "✖"; // Cross symbol
+
+// Show or hide the clear icon based on input value
+input.addEventListener("input", function () {
+  clearIcon.style.display = input.value ? "block" : "none";
+  if(clearIcon.style.display==="block")
+  input.style.maxWidth="5.9rem";
+
+});
+
+// Clear the input field when clear icon is clicked
+clearIcon.addEventListener("click", function () {
+  input.value = "";
+  clearIcon.style.display = "none";
+  input.focus(); // Focus back on the input
+  input.style.maxWidth="8rem";
+});
+
+// Add functionality to redirect to Google on pressing Enter
+function handleSearch() {
+  const query = input.value.trim();
+  if (query) {
+    window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  } 
+}
+
+// Add keydown event listener for the input field
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    handleSearch(); // Call the function to handle the search
+  }
+});
+
+// Add click event listener for the search icon
+searchIcon.addEventListener("click", handleSearch);
+
+// Append elements to the search container and then to the body
+searchContainer.appendChild(searchIcon);
+
+searchContainer.appendChild(input);
+searchContainer.appendChild(clearIcon);
+const navTools=document.querySelector('header');
+navTools.appendChild(searchContainer);
+
+input.addEventListener('click', function () {
+  // Change the background color of container2
+  input.style.backgroundColor = 'white';
+  searchIcon.style.backgroundColor = 'white';
+   // Change color (you can use any color)
+});
+
+document.addEventListener('click', function (event) {
+  if (!searchContainer.contains(event.target)) {
+    input.style.backgroundColor = '';  // Reset to default color
+    searchIcon.style.backgroundColor = ''; // Reset to default color
+  }
+});
+
+
+
+const header = document.querySelector('.header-wrapper');
+
+// Listen to the scroll event
+window.addEventListener('scroll', function () {
+  if (window.scrollY >0) {  // Trigger when scrolled more than 20px
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+

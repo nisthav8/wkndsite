@@ -39,7 +39,7 @@
   --heading-font-size-xs: 22px;
 
   /* nav height */
-  --nav-height: 94px;
+  --nav-height: 130px;
 }
 
 /* fallback fonts */
@@ -179,7 +179,7 @@ button {
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
+  /* background-color: var(--link-color); */
   color: var(--background-color);
   cursor: pointer;
   overflow: hidden;

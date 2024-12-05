@@ -148,3 +148,9 @@ export default async function decorate(block) {
     bindEvents(block);
   }
 }
+//  const navButtons=document.querySelectorAll('.carousel-navigation-buttons');
+//  const slideControls = document.querySelectorAll('[aria-label="Carousel Slide Controls"]');
+//  slideControls.forEach(button => {
+//  button.appendChild(navButtons[0]);
+
+//  })

@@ -1,5 +1,5 @@
 /* header and nav layout */
-header .nav-wrapper {
+header .nav-wrapper{
   background-color: var(--background-color);
   width: 100%;
   z-index: 2;
@@ -17,7 +17,7 @@ header nav {
   margin: auto;
   max-width: 1248px;
   height: var(--nav-height);
-  padding: 0 24px;
+  /* padding: 0 24px; */
   font-family: var(--body-font-family);
 }
 
@@ -166,11 +166,14 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+   font-size:14px;
+  justify-content: flex-end;
+  padding-right:250px;
 }
 
 header nav .nav-sections ul > li {
   font-weight: 500;
+  padding:15px;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -222,6 +225,7 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     gap: 24px;
     margin: 0;
+    padding-right:210px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
@@ -266,3 +270,51 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+
+/* //mycode */
+header nav .default-content-wrapper p:nth-of-type(1) img{
+  width:30px;
+  float:left;
+  margin-left:0;
+  margin-right:15px;
+}
+
+header nav .default-content-wrapper p:nth-of-type(2) img{
+  width:120px;
+}
+header nav .nav-hamburger {
+  display: none;
+  visibility: hidden;
+}
+@media (width >= 900px) {
+  header nav .default-content-wrapper p:nth-of-type(1) > picture{
+    display: none;
+    visibility: hidden;
+  }
+  header nav .nav-sections ul > li:hover{
+    background-color:#ffea00 ;
+  
+  }
+  header nav .nav-sections ul > li:nth-of-type(1){
+    display: none;
+    visibility: hidden;
+  }
+}
+@media (width <=1025px) {
+  header nav .default-content-wrapper p:nth-of-type(2) img{
+    max-width: 5rem;
+  }
+}
+
+
+
+  .scrolled{
+      padding-bottom:5px;
+     
+       /* height:10px; */
+      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .26);
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .26);
+      transition: padding-bottom .5s ease, padding-top .5s;
+  }
+
