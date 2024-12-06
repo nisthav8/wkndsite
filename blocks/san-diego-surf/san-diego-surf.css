@@ -18,8 +18,7 @@ main > .section:nth-of-type(1){
         width:1900px;
           }
        
-    .flex-parent-container > .san-diego-surf
-    -container {
+    .flex-parent-container > .san-diego-surf-container {
        margin-left:2rem;
     }
 }
@@ -43,7 +42,7 @@ main > .section:nth-of-type(1){
     padding-right: 10px;
 }
 
-#san-diego-surf-spots{
+#cardiff-by-the-sea{
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: var(--fontWeightNormal, normal);
     margin-bottom: 13.5px;
@@ -51,76 +50,60 @@ main > .section:nth-of-type(1){
     font-size: 40px;
 }
 
-#by-justin-barr {
-    font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
-    font-weight: var(--fontWeightBold, 600);
-    font-size: 1pc;
-}
 
-.san-diego-surf-container  h2 {
-    font-size: 18px;
-    line-height: 2.5;
-    margin: 0 0 13.5px;
-    font-weight: normal;
-}
 
-.san-diego-surf-container p strong {
+
+.san-diego-surf-container h4 {
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
-    font-size: 36px;
+    font-size: 12px;
     line-height: 0;
+    font-weight:normal;
 }
 
-.san-diego-surf
--container > .default-content-wrapper > p:nth-of-type(5) strong {
+.san-diego-surf-container > .default-content-wrapper > p:nth-of-type(5) strong {
     font-size: 15px;
 }
 
-.san-diego-surf
-  h2 {
+#san-diego-surf-spots{
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: var(--fontWeightNormal, normal);
-    margin-bottom: 13.5px;
+    margin-bottom: 40px;
     margin-top: 27px;
     font-size: 36px;
 }
 
 .san-diego-surf
  h2:after,
-.san-diego-surf
--container .default-content-wrapper p:nth-of-type(4):after {
-    border-bottom: 2px solid var(--brandPrimary, #ffea00);
+.san-diego-surf-container .default-content-wrapper p:nth-of-type(4):after {
+    /* border-bottom: 2px solid var(--brandPrimary, #ffea00);
     content: "";
     display: block;
     padding-top: 8px;
-    width: 84px;
+    width: 84px; */
 }
 
-.san-diego-surf
--container>.default-content-wrapper>p:nth-of-type(2) {
+.san-diego-surf-container>.default-content-wrapper>p:nth-of-type(2) {
     /* background-color: #ebebeb; */
     margin: 0;
     padding: 20px;
     font-weight: normal;
 }
 
-.san-diego-surf
--container>.default-content-wrapper>p:nth-of-type(3) {
+.san-diego-surf-container>.default-content-wrapper>p:nth-of-type(3) {
     /* background-color: #ebebeb; */
     margin: 0;
     padding: 20px;
     font-weight: normal;
 }
 
-.san-diego-surf
--container>.default-content-wrapper>p:nth-of-type(4) {
+.san-diego-surf-container>.default-content-wrapper>p:nth-of-type(4) {
     /* background-color: #ebebeb; */
     margin: 0;
     padding: 20px;
     font-weight: normal;
 }
 
-.san-diego-surf
--container>div:nth-of-type(3)>p:nth-of-type(1)>picture>img {
+.san-diego-surf-container>div:nth-of-type(3)>p:nth-of-type(1)>picture>img {
     border-radius: 50%;
     width: 64px;
     height: 64px;
@@ -129,7 +112,7 @@ main > .section:nth-of-type(1){
     justify-content: center;
 }
 
-#jacob-wester {
+#justin-barr {
     font-size: 17px;
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: normal;
@@ -141,8 +124,7 @@ main > .section:nth-of-type(1){
    
 }
 
-.san-diego-surf
--container>div:nth-of-type(3)>h6 {
+.san-diego-surf-container>div:nth-of-type(3)>h6 {
     font-size: 10px;
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: normal;
@@ -154,8 +136,7 @@ main > .section:nth-of-type(1){
 
 }
 
-.san-diego-surf
--container>div:nth-of-type(3)>p:nth-of-type(2) {
+.san-diego-surf-container>div:nth-of-type(3)>p:nth-of-type(2) {
     display: flex;
     justify-content: center;
     background-color: #202020;
@@ -166,8 +147,7 @@ main > .section:nth-of-type(1){
     padding:0;
 }
 
-.san-diego-surf
--container>div:nth-of-type(3)>p:nth-of-type(2)>picture>img {
+.san-diego-surf-container>div:nth-of-type(3)>p:nth-of-type(2)>picture>img {
     width: 22px;
     height: 22px;
     padding: 12px;
@@ -226,8 +206,7 @@ ol {
     background-color: #ffea00;
 }
 
-.san-diego-surf
--wrapper:after {
+.san-diego-surf-wrapper:after {
     border-bottom: 2px solid var(--brandPrimary, #e5e5e3);
     content: "";
     display: block;
@@ -254,4 +233,22 @@ ol {
 
     }
 
+}
+
+.san-diego-surf  h2 {
+  font-weight: normal;
+}
+.san-diego-surf-container {
+      font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+    font-size: 16px;
+    line-height:2.5 ;
+}
+.san-diego-surf-container h4{
+    padding-left:18px;
+}
+#by-justin-barr {
+    font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
+    font-weight: var(--fontWeightBold, 600);
+    font-size: 1pc;
+    padding-left:0px;
 }
