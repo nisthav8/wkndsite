@@ -150,7 +150,7 @@ export default async function decorate(block) {
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
+      <span class="nav-hamburger-icon"><img src="http://localhost:3000/media_14ee60d890f9a8d07e0cddcb4e2a4698ffbbff2c2.png?width=2000&format=webply&optimize=medium"></span>
     </button>`;
     // <img src="https://cdn-icons-png.flaticon.com/128/9091/9091429.png"></img>
   hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
@@ -166,87 +166,27 @@ export default async function decorate(block) {
   block.append(navWrapper);
 }
 
-
-// Create a style tag for CSS
-const style = document.createElement("style");
-style.textContent = `
-  .search-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: 20px;
-    width:auto; /* Adjust width as needed */
-   background-color: #ebebeb8a;
-    z-index:10;
-    position:fixed;
-     margin-right:24px;
-     right:5px;
-      top:22px;
-      font-size:14px;
-      max-width:10rem;
-      box-sizing: border-box;
-  }
-      
-   .search-container:focus-within{
-   background-color:white;
- border: 1px solid black;
-}
-  .search-icon {
-    background-color:#ebebeb8a;
-    padding: 8px 0px 8px 3px;
-    box-sizing: border-box;
-    
-     z-index:11;
-  }
-  .search-input {
-  box-sizing:border-box;
-    padding: 8px;
-    border:none;
-    flex: 1;
-  outline: none;
-     z-index:10;
-    //  width:2%;
-     background-color:#ebebeb8a;
-     max-width:8rem;
-      box-sizing: border-box;
-  }
-       .clear-icon {
-    
-    cursor: pointer;
-    z-index:11;
-    margin-right:4px;
-    color: black;
-    width:30px;
-font-size:20px;
- box-sizing: border-box;
-    display: none; /* Hidden by default */
-  }
-  
-`;
-document.head.appendChild(style);
-
-// Create search container dynamically
 const searchContainer = document.createElement("div");
 searchContainer.className = "search-container";
 
-// Create search icon
+
 const searchIcon = document.createElement("div");
 searchIcon.className = "search-icon";
 searchIcon.innerHTML = "&#x1F50E;&#xFE0E;";
 
-// Create search input
+
 const input = document.createElement("input");
 input.type = "text";
 input.placeholder = "SEARCH";
 input.className = "search-input";
 
 
-// Create clear icon
+
 const clearIcon = document.createElement("span");
 clearIcon.className = "clear-icon";
-clearIcon.innerHTML = "✖"; // Cross symbol
+clearIcon.innerHTML = "✖"; 
 
-// Show or hide the clear icon based on input value
+
 input.addEventListener("input", function () {
   clearIcon.style.display = input.value ? "block" : "none";
   if(clearIcon.style.display==="block")
@@ -254,15 +194,15 @@ input.addEventListener("input", function () {
 
 });
 
-// Clear the input field when clear icon is clicked
+
 clearIcon.addEventListener("click", function () {
   input.value = "";
   clearIcon.style.display = "none";
-  input.focus(); // Focus back on the input
+  input.focus(); 
   input.style.maxWidth="8rem";
 });
 
-// Add functionality to redirect to Google on pressing Enter
+
 function handleSearch() {
   const query = input.value.trim();
   if (query) {
@@ -270,17 +210,17 @@ function handleSearch() {
   } 
 }
 
-// Add keydown event listener for the input field
+
 input.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
-    handleSearch(); // Call the function to handle the search
+    handleSearch(); 
   }
 });
 
-// Add click event listener for the search icon
+
 searchIcon.addEventListener("click", handleSearch);
 
-// Append elements to the search container and then to the body
+
 searchContainer.appendChild(searchIcon);
 
 searchContainer.appendChild(input);
@@ -289,16 +229,16 @@ const navTools=document.querySelector('header');
 navTools.appendChild(searchContainer);
 
 input.addEventListener('click', function () {
-  // Change the background color of container2
+ 
   input.style.backgroundColor = 'white';
   searchIcon.style.backgroundColor = 'white';
-   // Change color (you can use any color)
+   
 });
 
 document.addEventListener('click', function (event) {
   if (!searchContainer.contains(event.target)) {
-    input.style.backgroundColor = '';  // Reset to default color
-    searchIcon.style.backgroundColor = ''; // Reset to default color
+    input.style.backgroundColor = '';  
+    searchIcon.style.backgroundColor = ''; 
   }
 });
 
@@ -306,22 +246,22 @@ document.addEventListener('click', function (event) {
 
 const header = document.querySelector('.header-wrapper');
 
-// Listen to the scroll event
+
 window.addEventListener('scroll', function () {
-  if (window.scrollY >0) {  // Trigger when scrolled more than 20px
+  if (window.scrollY >0) { 
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
 });
 
-function openNav() {
-  document.querySelectorAll("header nav .nav-sections ul")[0].style.width = "250px";
-  // document.getElementById("main").style.marginLeft = "250px";
-}
+// function openNav() {
+//   document.querySelectorAll("header nav .nav-sections ul")[0].style.width = "250px";
+//   // document.getElementById("main").style.marginLeft = "250px";
+// }
 
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-searchIcon.addEventListener("click",openNav);
+// function closeNav() {
+//   document.getElementById("mySidebar").style.width = "0";
+//   document.getElementById("main").style.marginLeft= "0";
+// }
+// searchIcon.addEventListener("click",openNav);

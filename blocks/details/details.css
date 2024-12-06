@@ -38,13 +38,13 @@
    
    @media (min-width: 767px) {
     .details {
-      grid-template-columns: 1fr 1fr; /* 2 columns */
+      grid-template-columns: 1fr 1fr; 
     }
   }
 
   @media (min-width: 1025px) {
     .details {
-      grid-template-columns: repeat(4, 1fr); /* 4 columns */
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 .details picture{

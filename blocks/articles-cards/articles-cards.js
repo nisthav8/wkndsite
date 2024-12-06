@@ -1,13 +1,7 @@
-// const container = document.createElement('div');
-// container.classList.add('flex-parent-container');
 
-
-
-
-// Function to fetch data from both files and generate cards
 async function fetchAndDisplayCards() {
     try {
-      // Fetch titles and descriptions from data1.json
+      
       const response1 = await fetch("http://localhost:3000/data.json");
       if (!response1.ok) {
         throw new Error(`Error fetching data1.json: ${response1.status}`);
@@ -15,38 +9,37 @@ async function fetchAndDisplayCards() {
       const titlesAndDescriptions = await response1.json();
       console.log(titlesAndDescriptions)
   
-      // Fetch paths from data2.json
+     
       const response2 = await fetch("http://localhost:3000/query-index.json");
       if (!response2.ok) {
         throw new Error(`Error fetching data2.json: ${response2.status}`);
       }
       const paths = await response2.json();
   
-      // Combine the two datasets
+      
       const combinedData = [];
 
-      // Use Object.entries() to get key-value pairs from titlesAndDescriptions.data
+    
       for (const [key, titleDescription] of Object.entries(titlesAndDescriptions.data)) {
-        const path = paths.data[key]?.path || "#";  // Use the same key to get the path
+        const path = paths.data[key]?.path || "#";  
       
-        // Combine the title/description with the path and push to the combinedData array
         combinedData.push({
           ...titleDescription,
           path: path,
         });
       }
 
-      // Create container dynamically
+     
       const container = document.createElement("div");
       container.className = "card-container";
     //   document.body.appendChild(container);
   
-      // Generate cards dynamically
+     
       combinedData.forEach((item) => {
         const card = document.createElement("div");
         card.className = "card";
   
-        // Add content
+      
         const title = document.createElement("h3");
         title.textContent = item.title;
   
@@ -58,18 +51,18 @@ async function fetchAndDisplayCards() {
         const description = document.createElement("p");
         description.textContent = item.description;
   
-        // Append elements to the card
+       
         card.appendChild(img);
         card.appendChild(title);
         card.appendChild(description);
         
   
-        // Add click event to navigate to the path
+       
         card.addEventListener("click", () => {
           window.location.href = item.path;
         });
   
-        // Append card to the container
+        
         container.appendChild(card);
         document.querySelectorAll('.articles-cards')[0].appendChild(container);
      
@@ -79,7 +72,7 @@ async function fetchAndDisplayCards() {
     }
   }
   
-  // Call the function
+  
   fetchAndDisplayCards();
 
  const flexContainer = document.querySelectorAll('.articles-cards-container .default-content-wrapper');
@@ -132,10 +125,10 @@ function moveGroup(startIndex, endIndex, destination) {
     }
   }
   
-  // Move the first group (h2, p, p, p) to the first destination container
+ 
   moveGroup(2, 5, membersOnlyPrimaryChildContainer);
   
-  // Move the second group (h2, p, p, p) to the second destination container
+  
   moveGroup(6, 9, membersOnlySecondaryChildContainer);
   
   
