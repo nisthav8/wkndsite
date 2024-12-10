@@ -2,7 +2,7 @@
 async function fetchAndDisplayCards() {
     try {
       
-      const response1 = await fetch("http://localhost:3000/data.json");
+      const response1 = await fetch("https://main--wkndsite--nisthav8.aem.page/data.json");
       if (!response1.ok) {
         throw new Error(`Error fetching data1.json: ${response1.status}`);
       }
@@ -10,7 +10,7 @@ async function fetchAndDisplayCards() {
       console.log(titlesAndDescriptions)
   
      
-      const response2 = await fetch("http://localhost:3000/query-index.json");
+      const response2 = await fetch("https://main--wkndsite--nisthav8.aem.page/query-index.json");
       if (!response2.ok) {
         throw new Error(`Error fetching data2.json: ${response2.status}`);
       }
