@@ -11,6 +11,9 @@
   transition: transform 0.5s ease-in-out;
   
 }
+.carousel-control:hover{
+    background-color:none;
+}
 
 .carousel-item {
   flex: 1 0 100%;
