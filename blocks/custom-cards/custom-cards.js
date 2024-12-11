@@ -71,3 +71,38 @@ export default async function decorate(block) {
     console.error("Error fetching or processing data:", error);
   }
 }
+
+
+const membersOnlyContainer = document.createElement('div');
+membersOnlyContainer.classList.add('flex-container');
+const membersOnlyPrimaryChildContainer = document.createElement('div');
+membersOnlyPrimaryChildContainer.classList.add('flex-primary-container');
+const membersOnlySecondaryChildContainer = document.createElement('div');
+membersOnlySecondaryChildContainer.classList.add('flex-secondary-container');
+
+membersOnlyContainer.appendChild(membersOnlyPrimaryChildContainer);
+membersOnlyContainer.appendChild(membersOnlySecondaryChildContainer);
+
+const parentContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
+ parentContainer[1].appendChild(membersOnlyContainer);
+  
+//  for (let i = 2; i <= 5; i++) {
+//     membersOnlyPrimaryChildContainer.appendChild(parentContainer[1].children[i]);
+//     }
+  
+const childElements = Array.from(parentContainer[1].children);
+function moveGroup(startIndex, endIndex, destination) {
+    for (let i = startIndex; i <= endIndex; i++) {
+      if (childElements[i]) {
+        destination.appendChild(childElements[i]);
+      }
+    }
+  }
+  
+ 
+  moveGroup(2, 5, membersOnlyPrimaryChildContainer);
+  
+  
+  moveGroup(6, 9, membersOnlySecondaryChildContainer);
+  
+  
