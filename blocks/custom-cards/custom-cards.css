@@ -1,20 +1,23 @@
-.articles-cards-container{
+.custom-cards-container{
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     margin:16px;
     padding:5px;
     padding-right:14px;
 }
-.articles-cards-container h1{
+.custom-cards{
+  margin-bottom:70px;
+}
+.custom-cards-container h1{
     font-size:40px;
     font-weight:normal;
     padding-left:12px;
  font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
 }
-.articles-cards h2{
+.custom-cards h2{
     font-weight: normal;
 }
 
-.articles-cards h2:after {
+.custom-cards h2:after {
     border-bottom: 2px solid var(--brandPrimary, #ffea00);
     content: "";
     display: block;
@@ -23,7 +26,7 @@
 }
 
 @media (width >= 900px) {
-    .articles-cards-container h1{
+    .custom-cards-container h1{
     padding-left:30px;
 }
 }
@@ -100,7 +103,7 @@ height:500px;
    
   }
 
-.articles-cards{
+.custom-cards{
     padding:0px;
 }
 
@@ -172,12 +175,12 @@ height:500px;
     margin-bottom: 10pxn
   }
 
-  .articles-cards-container .default-content-wrapper > h2{
+  .custom-cards-container .default-content-wrapper > h2{
       font-weight: normal;
       font-size:48px;
       font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
   }
-  .articles-cards-container > div:nth-of-type(3) >  h2:nth-of-type(1):after{
+  .custom-cards-container > div:nth-of-type(3) >  h2:nth-of-type(1):after{
     font-weight: normal;
     border-bottom: 2px solid var(--brandPrimary, #ffea00);
     content: "";
@@ -186,11 +189,11 @@ height:500px;
     width:84px;
 }
 
-.articles-cards-container > div:nth-of-type(3) >  p:nth-of-type(1){
+.custom-cards-container > div:nth-of-type(3) >  p:nth-of-type(1){
   font-size:18px;
 }
 
-.articles-cards-container > div:nth-of-type(3) > p:nth-of-type(1):after{
+.custom-cards-container > div:nth-of-type(3) > p:nth-of-type(1):after{
     border-bottom: 2px solid var(--brandPrimary, #e5e5e3);
     content: "";
     display: block;
@@ -274,4 +277,10 @@ height:500px;
     .flex-primary-container,.flex-secondary-container{
       width:340px;
   }
+}
+
+
+/* new code */
+.custom-cards.block > div > div > h2:first-of-type,h2:nth-of-type(2) {
+ display: none;
 }
