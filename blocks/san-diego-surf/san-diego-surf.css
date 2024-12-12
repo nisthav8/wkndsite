@@ -158,6 +158,7 @@ main > .section:nth-of-type(1){
     font-weight: var(--fontWeightBold, 600);
     font-size: 14px;
     padding-bottom: 100px;
+    padding-left:0px;
 }
 
 .flex-parent-container div:nth-of-type(2) ul,
@@ -217,8 +218,7 @@ ol {
 
 @media (width >=1025px) {
 
-    .san-diego-surf
-    -container>div:nth-of-type(3)>p:nth-of-type(2) {
+    .san-diego-surf-container>div:nth-of-type(3)>p:nth-of-type(2) {
          float: right; 
          margin-top:-60px;
 

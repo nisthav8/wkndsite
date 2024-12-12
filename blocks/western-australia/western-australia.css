@@ -161,6 +161,7 @@ main > .section:nth-of-type(1){
     font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
     font-weight: var(--fontWeightBold, 600);
     font-size: 14px;
+    padding-left:0px;
     padding-bottom: 100px;
 }
 

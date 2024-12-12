@@ -50,7 +50,7 @@ main > .section:nth-of-type(1){
     font-size: 40px;
 }
 
-#by-jacob-wester {
+#by-sofia-sjöberg {
     font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
     font-weight: var(--fontWeightBold, 600);
     font-size: 1pc;
@@ -119,7 +119,7 @@ main > .section:nth-of-type(1){
     justify-content: center;
 }
 
-#jacob-wester {
+#sofia-sjöberg {
     font-size: 17px;
     font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: normal;
@@ -159,12 +159,16 @@ main > .section:nth-of-type(1){
     height: 22px;
     padding: 12px;
 }
+#photographer-skiier-youtuber{
+    /* margin-left:0px; */
+}
 
 #share-this-story {
     font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
     font-weight: var(--fontWeightBold, 600);
     font-size: 14px;
     padding-bottom: 100px;
+    padding-left:0px;
 }
 
 .flex-parent-container div:nth-of-type(2) ul,

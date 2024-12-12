@@ -7,7 +7,7 @@
 .custom-cards{
   margin-bottom:70px;
 }
-.custom-cards-container h1{
+#magazine{
     font-size:40px;
     font-weight:normal;
     padding-left:12px;
@@ -17,7 +17,7 @@
     font-weight: normal;
 }
 
-.custom-cards h2:after {
+#members-only:after{
     border-bottom: 2px solid var(--brandPrimary, #ffea00);
     content: "";
     display: block;
@@ -27,7 +27,7 @@
 
 @media (width >= 900px) {
     .custom-cards-container h1{
-    padding-left:30px;
+    /* padding-left:30px; */
 }
 }
 
