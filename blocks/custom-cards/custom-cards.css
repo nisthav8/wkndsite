@@ -27,7 +27,7 @@
 
 @media (width >= 900px) {
     .custom-cards-container h1{
-    /* padding-left:30px; */
+    padding-left:30px;
 }
 }
 
@@ -256,7 +256,7 @@ height:500px;
           
         }
   .flex-secondary-container,.flex-primary-container{
-    padding:14px;
+    padding-right:14px;
     opacity:0.7;
   }
   .flex-primary-container:before,.flex-secondary-container:before{
