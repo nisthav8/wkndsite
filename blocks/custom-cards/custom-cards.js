@@ -15,7 +15,7 @@ export default async function decorate(block) {
     // Group data by template type
     const groupedData = Object.entries(data.data).reduce((acc, [key, item]) => {
       const template = item.template || "default";
-      console.log(template)
+      console.log(template);
       if (!acc[template]) acc[template] = [];
       acc[template].push({ ...item, path: item.path || "#" });
       return acc;
@@ -26,12 +26,6 @@ export default async function decorate(block) {
       // Create a container for the template type
       const templateContainer = document.createElement("div");
       templateContainer.className = `container-${template}`;
-
-      // Add a heading for the template type
-      // const headingElement = document.createElement("h2");
-      // headingElement.textContent = `${template.charAt(0).toUpperCase() + template.slice(1)} Section`;
-      // headingElement.className = `heading-${template}`;
-      // templateContainer.appendChild(headingElement);
 
       // Add content cards for each item in the template
       items.forEach(item => {
@@ -72,8 +66,13 @@ export default async function decorate(block) {
         templateContainer.appendChild(card);
       });
 
-      // Append the template container to the block
-      block.appendChild(templateContainer);
+      // Find the corresponding block class and append the template container
+      const targetBlock = block.querySelector(`.${template}`);
+      if (targetBlock) {
+        targetBlock.appendChild(templateContainer);
+      } else {
+        console.warn(`No block found for template: ${template}`);
+      }
     });
   } catch (error) {
     console.error("Error fetching or processing data:", error);
