@@ -35,7 +35,7 @@ export default async function decorate(block) {
       // Add content cards for each item in the template
       items.forEach(item => {
         const card = document.createElement("div");
-        card.className = `card-${template}`;
+        card.className = `card-${item.template}`;
 
         // Add image
         if (item.image) {
