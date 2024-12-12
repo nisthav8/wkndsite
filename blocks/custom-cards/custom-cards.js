@@ -31,7 +31,7 @@ export default async function decorate(block) {
         return;
       }
 
-      // Create a container for the template type
+      // Create a container for the template type (only once per template)
       const templateContainer = document.createElement("div");
       templateContainer.className = `container-${template}`;
 
@@ -74,7 +74,7 @@ export default async function decorate(block) {
         templateContainer.appendChild(card);
       });
 
-      // Find the corresponding block class and append the template container
+      // Find the corresponding block class and append the template container only once
       const targetBlock = document.querySelectorAll(`.${template}`)[0];
       if (targetBlock) {
         targetBlock.appendChild(templateContainer);
