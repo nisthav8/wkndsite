@@ -174,6 +174,9 @@ height:500px;
     /* border-radius: 10px; */
     /* margin-bottom: 10pxn */
   }
+  .image-trips{
+    border-radius:50%;
+  }
 
   /* .custom-cards-container .default-content-wrapper > h2{
       font-weight: normal;
