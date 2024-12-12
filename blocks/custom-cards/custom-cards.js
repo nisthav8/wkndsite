@@ -66,14 +66,15 @@ export default async function decorate(block) {
         templateContainer.appendChild(card);
       });
 
-      // Find the corresponding block class and append the template container
-      const targetBlock = document.querySelectorAll(`.${template}`)[0];
-      if (targetBlock) {
-        targetBlock.appendChild(templateContainer);
-      } else {
-        console.warn(`No block found for template: ${template}`);
-      }
+     
     });
+     // Find the corresponding block class and append the template container
+     const targetBlock = document.querySelectorAll(`.${template}`)[0];
+     if (targetBlock) {
+       targetBlock.appendChild(templateContainer);
+     } else {
+       console.warn(`No block found for template: ${template}`);
+     }
   } catch (error) {
     console.error("Error fetching or processing data:", error);
   }
