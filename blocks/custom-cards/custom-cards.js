@@ -15,6 +15,7 @@ export default async function decorate(block) {
     // Group data by template type
     const groupedData = Object.entries(data.data).reduce((acc, [key, item]) => {
       const template = item.template || "default";
+      console.log(template)
       if (!acc[template]) acc[template] = [];
       acc[template].push({ ...item, path: item.path || "#" });
       return acc;
