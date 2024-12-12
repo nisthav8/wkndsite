@@ -74,10 +74,14 @@ export default async function decorate(block) {
         templateContainer.appendChild(card);
       });
 
-      // Find the corresponding block class and append the template container only once
+      // Find the corresponding block class
       const targetBlock = document.querySelectorAll(`.${template}`)[0];
       if (targetBlock) {
-        targetBlock.appendChild(templateContainer);
+        // Check if the target block already contains the template container
+        const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
+        if (!existingContainer) {
+          targetBlock.appendChild(templateContainer); // Append only if not already present
+        }
         processedTemplates.add(template); // Mark this template as processed
       } else {
         console.warn(`No block found for template: ${template}`);
@@ -87,7 +91,6 @@ export default async function decorate(block) {
     console.error("Error fetching or processing data:", error);
   }
 }
-
 
 
 const flexContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
