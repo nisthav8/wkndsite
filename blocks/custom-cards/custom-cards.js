@@ -15,14 +15,22 @@ export default async function decorate(block) {
     // Group data by template type
     const groupedData = Object.entries(data.data).reduce((acc, [key, item]) => {
       const template = item.template || "default";
-      console.log(template);
       if (!acc[template]) acc[template] = [];
       acc[template].push({ ...item, path: item.path || "#" });
       return acc;
     }, {});
 
+    // Keep track of which templates have already been processed
+    const processedTemplates = new Set();
+
     // Dynamically render content based on the template
     Object.entries(groupedData).forEach(([template, items]) => {
+      // Check if the template has already been processed
+      if (processedTemplates.has(template)) {
+        console.warn(`Template ${template} already processed.`);
+        return;
+      }
+
       // Create a container for the template type
       const templateContainer = document.createElement("div");
       templateContainer.className = `container-${template}`;
@@ -66,15 +74,15 @@ export default async function decorate(block) {
         templateContainer.appendChild(card);
       });
 
-     
+      // Find the corresponding block class and append the template container
+      const targetBlock = block.querySelector(`.${template}`);
+      if (targetBlock) {
+        targetBlock.appendChild(templateContainer);
+        processedTemplates.add(template); // Mark this template as processed
+      } else {
+        console.warn(`No block found for template: ${template}`);
+      }
     });
-     // Find the corresponding block class and append the template container
-     const targetBlock = document.querySelectorAll(`.${template}`)[0];
-     if (targetBlock) {
-       targetBlock.appendChild(templateContainer);
-     } else {
-       console.warn(`No block found for template: ${template}`);
-     }
   } catch (error) {
     console.error("Error fetching or processing data:", error);
   }
