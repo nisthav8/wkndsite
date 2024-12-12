@@ -26,7 +26,7 @@ export default async function decorate(block) {
       const templateBlock = block.querySelector(`.${template}`) || document.createElement("div");
 
       if (!templateBlock.className.includes(template)) {
-        templateBlock.className = `${template} block-${template}`;
+        templateBlock.className = `block-${template}`;
         block.appendChild(templateBlock);
       }
 
@@ -36,14 +36,14 @@ export default async function decorate(block) {
       // Add content dynamically
       items.forEach(item => {
         const card = document.createElement("div");
-        card.className = `card block-${template}-card`;
+        card.className = `card-${template}`;
 
         // Add image
         if (item.image) {
           const img = document.createElement("img");
           img.src = item.image;
           img.alt = `${item.title || "image"} image`;
-          img.className = `card-image block-${template}-card-image`;
+          img.className = `image-${template}`;
           card.appendChild(img);
         }
 
@@ -51,7 +51,7 @@ export default async function decorate(block) {
         if (item.title) {
           const titleElement = document.createElement("h3");
           titleElement.textContent = item.title;
-          titleElement.className = `card-title block-${template}-card-title`;
+          titleElement.className = `title-${template}`;
           card.appendChild(titleElement);
         }
 
@@ -59,7 +59,7 @@ export default async function decorate(block) {
         if (item.description) {
           const descriptionElement = document.createElement("p");
           descriptionElement.textContent = item.description;
-          descriptionElement.className = `card-description block-${template}-card-description`;
+          descriptionElement.className = `description-${template}`;
           card.appendChild(descriptionElement);
         }
 
@@ -76,6 +76,7 @@ export default async function decorate(block) {
     console.error("Error fetching or processing data:", error);
   }
 }
+
 
 
 const flexContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
