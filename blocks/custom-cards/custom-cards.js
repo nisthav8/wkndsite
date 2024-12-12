@@ -75,7 +75,7 @@ export default async function decorate(block) {
       });
 
       // Find the corresponding block class and append the template container
-      const targetBlock = block.querySelector(`.${template}`);
+      const targetBlock = document.querySelectorAll(`.${template}`)[0];
       if (targetBlock) {
         targetBlock.appendChild(templateContainer);
         processedTemplates.add(template); // Mark this template as processed
