@@ -1,6 +1,6 @@
 export default async function decorate(block) {
   try {
-    // Extract JSON URL from the block
+    // Fetch JSON URL from the block
     const url = block.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
 
     // Fetch JSON data
@@ -20,22 +20,19 @@ export default async function decorate(block) {
       return acc;
     }, {});
 
-    // Render grouped data dynamically
+    // Dynamically render content based on the template
     Object.entries(groupedData).forEach(([template, items]) => {
-      // Find the block corresponding to the template class
-      const templateBlock = block.querySelector(`.${template}`) || document.createElement("div");
+      // Create a container for the template type
+      const templateContainer = document.createElement("div");
+      templateContainer.className = `container-${template}`;
 
-      // Set class name dynamically based on template value
-      if (!templateBlock.className.includes(template)) {
-        const templateClass = items[0]?.template || "default";
-        templateBlock.className = `block-${templateClass}`;
-        block.appendChild(templateBlock);
-      }
+      // Add a heading for the template type
+      // const headingElement = document.createElement("h2");
+      // headingElement.textContent = `${template.charAt(0).toUpperCase() + template.slice(1)} Section`;
+      // headingElement.className = `heading-${template}`;
+      // templateContainer.appendChild(headingElement);
 
-      // Clear the template block before appending new content
-      templateBlock.innerHTML = "";
-
-      // Add content dynamically
+      // Add content cards for each item in the template
       items.forEach(item => {
         const card = document.createElement("div");
         card.className = `card-${template}`;
@@ -70,9 +67,12 @@ export default async function decorate(block) {
           window.location.href = item.path;
         });
 
-        // Append card to the template block
-        templateBlock.appendChild(card);
+        // Append the card to the template container
+        templateContainer.appendChild(card);
       });
+
+      // Append the template container to the block
+      block.appendChild(templateContainer);
     });
   } catch (error) {
     console.error("Error fetching or processing data:", error);
