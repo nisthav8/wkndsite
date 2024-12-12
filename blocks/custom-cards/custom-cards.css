@@ -169,7 +169,8 @@ height:500px;
   }
  
 .image-trips,.image-articles {
-    /* max-width: 100%; */
+    max-width: 100%;
+    height:auto;
     /* height: auto; */
     /* border-radius: 10px; */
     /* margin-bottom: 10pxn */
