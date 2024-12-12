@@ -57,9 +57,9 @@ export default async function decorate(block) {
         templateContainer.appendChild(card);
       });
 
-      const targetBlock = document.querySelector(`.${template}`);
+      const targetBlock = document.querySelectorAll(`.${template}`)[0];
       if (targetBlock) {
-        const existingContainer = targetBlock.querySelector(`.container-${template}`);
+        const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
         if (!existingContainer) {
           targetBlock.appendChild(templateContainer);
         }
