@@ -1,9 +1,7 @@
 export default async function decorate(block) {
   try {
-   
     const url = block.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
 
-  
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -12,26 +10,24 @@ export default async function decorate(block) {
 
     const data = await response.json();
 
-   
     const groupedData = Object.entries(data.data).reduce((acc, [key, item]) => {
-      const template = item.template || "default";
+      const template = item.template;
+
+      if (!template || template.trim() === "") return acc;
+
       if (!acc[template]) acc[template] = [];
       acc[template].push({ ...item, path: item.path || "#" });
       return acc;
     }, {});
 
-
     Object.entries(groupedData).forEach(([template, items]) => {
-  
       const templateContainer = document.createElement("div");
       templateContainer.className = `container-${template}`;
 
-    
       items.forEach(item => {
         const card = document.createElement("div");
         card.className = `card-${template}`;
 
-      
         if (item.image) {
           const img = document.createElement("img");
           img.src = item.image;
@@ -40,7 +36,6 @@ export default async function decorate(block) {
           card.appendChild(img);
         }
 
-   
         if (item.title) {
           const titleElement = document.createElement("h3");
           titleElement.textContent = item.title;
@@ -48,7 +43,6 @@ export default async function decorate(block) {
           card.appendChild(titleElement);
         }
 
-       
         if (item.description) {
           const descriptionElement = document.createElement("p");
           descriptionElement.textContent = item.description;
@@ -56,21 +50,18 @@ export default async function decorate(block) {
           card.appendChild(descriptionElement);
         }
 
-      
         card.addEventListener("click", () => {
           window.location.href = item.path;
         });
 
-  
         templateContainer.appendChild(card);
       });
 
-      
-      const targetBlock = document.querySelectorAll(`.${template}`)[0];
+      const targetBlock = document.querySelector(`.${template}`);
       if (targetBlock) {
-        const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
+        const existingContainer = targetBlock.querySelector(`.container-${template}`);
         if (!existingContainer) {
-          targetBlock.appendChild(templateContainer); 
+          targetBlock.appendChild(templateContainer);
         }
       } else {
         console.warn(`No block found for template: ${template}`);
