@@ -26,7 +26,7 @@ export default async function decorate(block) {
       const templateBlock = block.querySelector(`.${template}`) || document.createElement("div");
 
       if (!templateBlock.className.includes(template)) {
-        templateBlock.className = template;
+        templateBlock.className = `${template} template-block`;
         block.appendChild(templateBlock);
       }
 
@@ -36,14 +36,14 @@ export default async function decorate(block) {
       // Add content dynamically
       items.forEach(item => {
         const card = document.createElement("div");
-        card.className = "card";
+        card.className = "card template-card";
 
         // Add image
         if (item.image) {
           const img = document.createElement("img");
           img.src = item.image;
           img.alt = `${item.title || "image"} image`;
-          img.className = "card-image";
+          img.className = "card-image template-card-image";
           card.appendChild(img);
         }
 
@@ -51,6 +51,7 @@ export default async function decorate(block) {
         if (item.title) {
           const titleElement = document.createElement("h3");
           titleElement.textContent = item.title;
+          titleElement.className = "card-title template-card-title";
           card.appendChild(titleElement);
         }
 
@@ -58,6 +59,7 @@ export default async function decorate(block) {
         if (item.description) {
           const descriptionElement = document.createElement("p");
           descriptionElement.textContent = item.description;
+          descriptionElement.className = "card-description template-card-description";
           card.appendChild(descriptionElement);
         }
 
