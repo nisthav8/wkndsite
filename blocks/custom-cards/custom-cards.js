@@ -1,9 +1,9 @@
 export default async function decorate(block) {
   try {
-    // Fetch JSON URL from the block
+   
     const url = block.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
 
-    // Fetch JSON data
+  
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -12,7 +12,7 @@ export default async function decorate(block) {
 
     const data = await response.json();
 
-    // Group data by template type
+   
     const groupedData = Object.entries(data.data).reduce((acc, [key, item]) => {
       const template = item.template || "default";
       if (!acc[template]) acc[template] = [];
@@ -20,27 +20,18 @@ export default async function decorate(block) {
       return acc;
     }, {});
 
-    // Keep track of which templates have already been processed
-    const processedTemplates = new Set();
 
-    // Dynamically render content based on the template
     Object.entries(groupedData).forEach(([template, items]) => {
-      // Check if the template has already been processed
-      if (processedTemplates.has(template)) {
-        console.warn(`Template ${template} already processed.`);
-        return;
-      }
-
-      // Create a container for the template type (only once per template)
+  
       const templateContainer = document.createElement("div");
       templateContainer.className = `container-${template}`;
 
-      // Add content cards for each item in the template
+    
       items.forEach(item => {
         const card = document.createElement("div");
         card.className = `card-${template}`;
 
-        // Add image
+      
         if (item.image) {
           const img = document.createElement("img");
           img.src = item.image;
@@ -49,7 +40,7 @@ export default async function decorate(block) {
           card.appendChild(img);
         }
 
-        // Add title
+   
         if (item.title) {
           const titleElement = document.createElement("h3");
           titleElement.textContent = item.title;
@@ -57,7 +48,7 @@ export default async function decorate(block) {
           card.appendChild(titleElement);
         }
 
-        // Add description
+       
         if (item.description) {
           const descriptionElement = document.createElement("p");
           descriptionElement.textContent = item.description;
@@ -65,24 +56,22 @@ export default async function decorate(block) {
           card.appendChild(descriptionElement);
         }
 
-        // Add click event for navigation
+      
         card.addEventListener("click", () => {
           window.location.href = item.path;
         });
 
-        // Append the card to the template container
+  
         templateContainer.appendChild(card);
       });
 
-      // Find the corresponding block class
+      
       const targetBlock = document.querySelectorAll(`.${template}`)[0];
       if (targetBlock) {
-        // Check if the target block already contains the template container
         const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
         if (!existingContainer) {
           targetBlock.appendChild(templateContainer); // Append only if not already present
         }
-        processedTemplates.add(template); // Mark this template as processed
       } else {
         console.warn(`No block found for template: ${template}`);
       }
