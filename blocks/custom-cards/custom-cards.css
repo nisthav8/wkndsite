@@ -126,7 +126,7 @@ height:500px;
     }
   
   @media (width >=548px) {
-    .card-container{
+    .custom-cards{
   grid-template-columns: 1fr 1fr;
     }
   }
