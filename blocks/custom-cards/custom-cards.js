@@ -40,7 +40,7 @@ export default async function decorate(block) {
         // Add image
         if (item.image) {
           const img = document.createElement("img");
-          img.src = item.image;
+          img.src = item.template;
           img.alt = `${item.title || "image"} image`;
           img.className = `image-${template}`;
           card.appendChild(img);
