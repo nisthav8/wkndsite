@@ -169,13 +169,13 @@ height:500px;
   }
  
 .image-trips,.image-articles {
-    max-width: 100%;
+    /* max-width: 100%; */
     /* height: auto; */
     /* border-radius: 10px; */
     /* margin-bottom: 10pxn */
   }
   .image-trips{
-    border-radius:30%;
+    border-radius:50%;
   }
 
   /* .custom-cards-container .default-content-wrapper > h2{
