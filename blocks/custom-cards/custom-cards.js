@@ -25,8 +25,10 @@ export default async function decorate(block) {
       // Find the block corresponding to the template class
       const templateBlock = block.querySelector(`.${template}`) || document.createElement("div");
 
+      // Set class name dynamically based on template value
       if (!templateBlock.className.includes(template)) {
-        templateBlock.className = `block-${template}`;
+        const templateClass = items[0]?.template || "default";
+        templateBlock.className = `block-${templateClass}`;
         block.appendChild(templateBlock);
       }
 
