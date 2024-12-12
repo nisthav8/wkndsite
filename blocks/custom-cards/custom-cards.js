@@ -70,7 +70,7 @@ export default async function decorate(block) {
       if (targetBlock) {
         const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
         if (!existingContainer) {
-          targetBlock.appendChild(templateContainer); // Append only if not already present
+          targetBlock.appendChild(templateContainer); 
         }
       } else {
         console.warn(`No block found for template: ${template}`);
