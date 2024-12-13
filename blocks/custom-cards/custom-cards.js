@@ -43,7 +43,7 @@ function renderTemplates(groupedData) {
       templateContainer.appendChild(card);
     });
 
-    const targetBlock = block.querySelector(`.${template}`);
+    const targetBlock = block.querySelectorAll(`.${template}`)[0];
     if (targetBlock) {
       const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
       if (!existingContainer) {
