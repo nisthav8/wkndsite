@@ -87,3 +87,63 @@ function createCard(template, item) {
 
   return card;
 }
+
+async function organizeFlexContainers() {
+  const flexContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
+  if (flexContainer.length === 0) return;
+
+  flexContainer[0].classList.add('flex-parent-container');
+  const primaryChildContainer = createChildContainer('primary-container');
+  const secondaryChildContainer = createChildContainer('secondary-container');
+
+  moveChildren(flexContainer[0], primaryChildContainer);
+  flexContainer[0].insertBefore(secondaryChildContainer, flexContainer[0].firstChild);
+  flexContainer[0].insertBefore(primaryChildContainer, secondaryChildContainer);
+
+  const mainContainer = document.querySelector('.custom-cards-container');
+  if (mainContainer) {
+    mainContainer.insertBefore(primaryChildContainer.firstChild, mainContainer.firstChild);
+  }
+}
+
+// async function organizeMembersOnlyContainer() {
+//   const parentContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
+//   if (parentContainer.length < 2) return;
+
+//   const membersOnlyContainer = createChildContainer('flex-container');
+//   const membersOnlyPrimaryChildContainer = createChildContainer('flex-primary-container');
+//   const membersOnlySecondaryChildContainer = createChildContainer('flex-secondary-container');
+
+//   membersOnlyContainer.appendChild(membersOnlyPrimaryChildContainer);
+//   membersOnlyContainer.appendChild(membersOnlySecondaryChildContainer);
+//   parentContainer[1].appendChild(membersOnlyContainer);
+
+//   const childElements = Array.from(parentContainer[1].children);
+//   moveGroup(childElements, 2, 5, membersOnlyPrimaryChildContainer);
+//   moveGroup(childElements, 6, 9, membersOnlySecondaryChildContainer);
+// }
+
+// function createChildContainer(className) {
+//   const container = document.createElement('div');
+//   container.classList.add(className);
+//   return container;
+// }
+
+// function moveChildren(source, destination) {
+//   while (source.firstChild) {
+//     destination.appendChild(source.firstChild);
+//   }
+// }
+
+// function moveGroup(childElements, startIndex, endIndex, destination) {
+//   for (let i = startIndex; i <= endIndex; i++) {
+//     if (childElements[i]) {
+//       destination.appendChild(childElements[i]);
+//     }
+//   }
+// }
+
+// (async function main() {
+//   await organizeFlexContainers();
+//   await organizeMembersOnlyContainer();
+// })();
