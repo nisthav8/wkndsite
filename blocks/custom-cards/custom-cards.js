@@ -1,6 +1,6 @@
 export default async function decorate(block) {
   try {
-    console.log(block);
+    console.log("abc");
     const url = getURLFromBlock(block);
     const data = await fetchData(url);
     const groupedData = groupDataByTemplate(data);
