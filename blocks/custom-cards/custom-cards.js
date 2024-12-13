@@ -43,11 +43,11 @@ function renderTemplates(groupedData,block) {
       templateContainer.appendChild(card);
     });
 
-    const targetBlock = block.classList.contains(template);
+    const targetBlock = document.querySelectorAll(`.${template}`)[0];
     if (targetBlock) {
-      const existingContainer = block.querySelectorAll(`.container-${template}`)[0];
+      const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
       if (!existingContainer) {
-        block.appendChild(templateContainer);
+        targetBlock.appendChild(templateContainer);
       }
     } else {
       console.warn(`No block found for template: ${template}`);
