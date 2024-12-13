@@ -1,0 +1,88 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+
+  }
+  @media (width >= 767px) {
+    .flex-container{
+      flex-direction: row;
+  }
+}
+  .flex-container h2{
+    font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
+    font-size: var(--fontSizeMedium, 18px);
+    font-weight: var(--fontWeightBold, 600);
+  }
+
+
+  .flex-primary-container > div:nth-child(1) > p,.flex-secondary-container > div:nth-child(1) > p{
+  color: dimgray;
+    font-size: var(--fontSizeSmall, 16px);
+    text-transform: uppercase;
+
+  } 
+
+.flex-primary-container > div:nth-child(2) > p,.flex-secondary-container > div:nth-child(2) > p{
+    background-color: #ebebeb;
+    color: dimgray;
+    font-size: var(--fontSizeSmall, 16px);
+    padding: .5em 1em;
+    text-transform: uppercase;
+    width:100px;
+    margin:30px 0;
+    }
+
+    .flex-container p:nth-of-type(3){
+        color: dimgray;
+          font-size: var(--fontSizeSmall, 14px);
+          text-transform: uppercase;
+          padding-top: 10px;
+          
+        }
+  .flex-secondary-container,.flex-primary-container{
+    padding-right:14px;
+    opacity:0.7;
+  }
+  .flex-primary-container:before,.flex-secondary-container:before{
+    
+ 
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+   
+    background: linear-gradient(to top left, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, 0) 50%, var(--brandPrimary, #ffea00) 50%, var(--brandPrimary, #ffea00) 100%);
+    color: #000;
+   
+    content:  url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="18" height="24" rx="0" ry="0" fill="black"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none"></path></svg>');
+    font-family: wknd-icon-font !important;
+    font-size: 1.25rem;
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    padding: 9pt;
+    position: relative;
+    text-transform: none;
+    top: 49px;
+    z-index: 2;
+
+}
+   .flex-container img{
+    width:100%;
+    max-height:300px;
+    height:auto;
+    object-fit: cover;
+   }
+@media (width >= 1024px) {
+    .flex-primary-container,.flex-secondary-container{
+      width:340px;
+  }
+}
+.members-only > div:nth-child(2) > div > p:after{
+    border-bottom: 2.5px solid var(--brandPrimary, #e5e5e3);
+    content: "";
+    display: block;
+    margin: 70px 0;
+    width: 100%;
+  }
