@@ -1,131 +1,141 @@
 export default async function decorate(block) {
   try {
-    const url = block.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
+    const url = block.querySelector("div > div > div > div").textContent;
+    const data = await fetchData(url);
 
-    const response = await fetch(url);
+    const groupedData = groupDataByTemplate(data);
 
-    if (!response.ok) {
-      throw new Error(`Error fetching the data: ${response.status}`);
-    }
-
-    const data = await response.json();
-
-    const groupedData = Object.entries(data.data).reduce((acc, [key, item]) => {
-      const template = item.template;
-
-      if (!template || template.trim() === "") return acc;
-
-      if (!acc[template]) acc[template] = [];
-      acc[template].push({ ...item, path: item.path || "#" });
-      return acc;
-    }, {});
-
-    Object.entries(groupedData).forEach(([template, items]) => {
-      const templateContainer = document.createElement("div");
-      templateContainer.className = `container-${template}`;
-
-      items.forEach(item => {
-        const card = document.createElement("div");
-        card.className = `card-${template}`;
-
-        if (item.image) {
-          const img = document.createElement("img");
-          img.src = item.image;
-          img.alt = `${item.title || "image"} image`;
-          img.className = `image-${template}`;
-          card.appendChild(img);
-        }
-
-        if (item.title) {
-          const titleElement = document.createElement("h3");
-          titleElement.textContent = item.title;
-          titleElement.className = `title-${template}`;
-          card.appendChild(titleElement);
-        }
-
-        if (item.description) {
-          const descriptionElement = document.createElement("p");
-          descriptionElement.textContent = item.description;
-          descriptionElement.className = `description-${template}`;
-          card.appendChild(descriptionElement);
-        }
-
-        card.addEventListener("click", () => {
-          window.location.href = item.path;
-        });
-
-        templateContainer.appendChild(card);
-      });
-
-      const targetBlock = document.querySelectorAll(`.${template}`)[0];
-      if (targetBlock) {
-        const existingContainer = targetBlock.querySelectorAll(`.container-${template}`)[0];
-        if (!existingContainer) {
-          targetBlock.appendChild(templateContainer);
-        }
-      } else {
-        console.warn(`No block found for template: ${template}`);
-      }
-    });
+    renderGroupedData(groupedData);
+    organizeContainers();
   } catch (error) {
-    console.error("Error fetching or processing data:", error);
+    console.error("Error in decorate function:", error);
   }
 }
 
-
-const flexContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
-flexContainer[0].classList.add('flex-parent-container');
-const primaryChildContainer = document.createElement('div');
-const secondaryChildContainer = document.createElement('div');
-primaryChildContainer.classList.add('primary-container');
-secondaryChildContainer.classList.add('secondary-container');
-
-if (flexContainer[0].lastChild) {
-    secondaryChildContainer.appendChild(flexContainer[0].lastChild);
+async function fetchData(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Error fetching data: ${response.status}`);
   }
-  
-while (flexContainer[0].firstChild) {
-    primaryChildContainer.appendChild(flexContainer[0].firstChild);
+  return response.json();
 }
 
+function groupDataByTemplate(data) {
+  return Object.values(data.data).reduce((acc, item) => {
+    const template = item.template?.trim();
+    if (!template) return acc;
+    if (!acc[template]) acc[template] = [];
+    acc[template].push({ ...item, path: item.path || "#" });
+    return acc;
+  }, {});
+}
 
-flexContainer[0].insertBefore(secondaryChildContainer,flexContainer[0].firstChild);
-flexContainer[0].insertBefore(primaryChildContainer,secondaryChildContainer);
-        
+function renderGroupedData(groupedData) {
+  Object.entries(groupedData).forEach(([template, items]) => {
+    const container = createTemplateContainer(template, items);
+    const targetBlock = document.querySelector(`.${template}`);
 
-const mainContainer = document.querySelectorAll('.custom-cards-container')[0];
-    mainContainer.insertBefore(primaryChildContainer.firstChild,mainContainer.firstChild)
-
-const membersOnlyContainer = document.createElement('div');
-membersOnlyContainer.classList.add('flex-container');
-const membersOnlyPrimaryChildContainer = document.createElement('div');
-membersOnlyPrimaryChildContainer.classList.add('flex-primary-container');
-const membersOnlySecondaryChildContainer = document.createElement('div');
-membersOnlySecondaryChildContainer.classList.add('flex-secondary-container');
-
-membersOnlyContainer.appendChild(membersOnlyPrimaryChildContainer);
-membersOnlyContainer.appendChild(membersOnlySecondaryChildContainer);
-
-const parentContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
- parentContainer[1].appendChild(membersOnlyContainer);
-  
-//  for (let i = 2; i <= 5; i++) {
-//     membersOnlyPrimaryChildContainer.appendChild(parentContainer[1].children[i]);
-//     }
-  
-const childElements = Array.from(parentContainer[1].children);
-function moveGroup(startIndex, endIndex, destination) {
-    for (let i = startIndex; i <= endIndex; i++) {
-      if (childElements[i]) {
-        destination.appendChild(childElements[i]);
-      }
+    if (targetBlock && !targetBlock.querySelector(`.container-${template}`)) {
+      targetBlock.appendChild(container);
+    } else {
+      console.warn(`No block found for template: ${template}`);
     }
+  });
+}
+
+function createTemplateContainer(template, items) {
+  const container = document.createElement("div");
+  container.className = `container-${template}`;
+
+  items.forEach((item) => {
+    const card = createCard(template, item);
+    container.appendChild(card);
+  });
+
+  return container;
+}
+
+function createCard(template, item) {
+  const card = document.createElement("div");
+  card.className = `card-${template}`;
+
+  if (item.image) {
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = `${item.title || "image"} image`;
+    img.className = `image-${template}`;
+    card.appendChild(img);
   }
-  
- 
-  moveGroup(2, 5, membersOnlyPrimaryChildContainer);
-  
-  
-  moveGroup(6, 9, membersOnlySecondaryChildContainer);
-  
-  
+
+  if (item.title) {
+    const title = document.createElement("h3");
+    title.textContent = item.title;
+    title.className = `title-${template}`;
+    card.appendChild(title);
+  }
+
+  if (item.description) {
+    const description = document.createElement("p");
+    description.textContent = item.description;
+    description.className = `description-${template}`;
+    card.appendChild(description);
+  }
+
+  card.addEventListener("click", () => {
+    window.location.href = item.path;
+  });
+
+  return card;
+}
+
+function organizeContainers() {
+  const containers = document.querySelectorAll(
+    ".custom-cards-container .default-content-wrapper"
+  );
+  if (containers.length === 0) return;
+
+  setupPrimarySecondaryContainers(containers[0]);
+  if (containers[1]) setupMembersOnlyContainer(containers[1]);
+}
+
+function setupPrimarySecondaryContainers(container) {
+  container.classList.add("flex-parent-container");
+
+  const primary = document.createElement("div");
+  const secondary = document.createElement("div");
+  primary.className = "primary-container";
+  secondary.className = "secondary-container";
+
+  if (container.lastChild) secondary.appendChild(container.lastChild);
+
+  while (container.firstChild) {
+    primary.appendChild(container.firstChild);
+  }
+
+  container.append(primary, secondary);
+
+  const mainContainer = document.querySelector(".custom-cards-container");
+  if (mainContainer) mainContainer.prepend(primary.firstChild);
+}
+
+function setupMembersOnlyContainer(container) {
+  const membersOnly = document.createElement("div");
+  membersOnly.className = "flex-container";
+
+  const primary = document.createElement("div");
+  const secondary = document.createElement("div");
+  primary.className = "flex-primary-container";
+  secondary.className = "flex-secondary-container";
+
+  membersOnly.append(primary, secondary);
+  container.appendChild(membersOnly);
+
+  moveChildren(container.children, 2, 5, primary);
+  moveChildren(container.children, 6, 9, secondary);
+}
+
+function moveChildren(elements, start, end, destination) {
+  Array.from(elements)
+    .slice(start, end + 1)
+    .forEach((el) => destination.appendChild(el));
+}
