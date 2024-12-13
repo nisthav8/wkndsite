@@ -17,9 +17,9 @@
 
   .members-only .flex-primary-container > div:nth-child(1) > p,.members-only .flex-secondary-container > div:nth-child(1) > p{
   color: dimgray;
-    font-size: var(--fontSizeSmall, 16px);
+    font-size: var(--fontSizeSmall, 14px);
     text-transform: uppercase;
-    width:500px;
+    /* width:500px; */
 
   } 
 
@@ -72,10 +72,11 @@
     max-height:300px;
     height:auto;
     object-fit: cover;
+    /* width:auto; */
    }
 @media (width >= 1024px) {
     .members-only .flex-primary-container,.members-only .flex-secondary-container{
-      width:400px;
+      
   }
 }
 .members-only > div:nth-child(2) > div > p:after{

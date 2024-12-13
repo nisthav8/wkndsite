@@ -88,23 +88,23 @@ function createCard(template, item) {
   return card;
 }
 
-async function organizeFlexContainers() {
-  const flexContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
-  if (flexContainer.length === 0) return;
+// async function organizeFlexContainers() {
+//   const flexContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
+//   if (flexContainer.length === 0) return;
 
-  flexContainer[0].classList.add('flex-parent-container');
-  const primaryChildContainer = createChildContainer('primary-container');
-  const secondaryChildContainer = createChildContainer('secondary-container');
+//   flexContainer[0].classList.add('flex-parent-container');
+//   const primaryChildContainer = createChildContainer('primary-container');
+//   const secondaryChildContainer = createChildContainer('secondary-container');
 
-  moveChildren(flexContainer[0], primaryChildContainer);
-  flexContainer[0].insertBefore(secondaryChildContainer, flexContainer[0].firstChild);
-  flexContainer[0].insertBefore(primaryChildContainer, secondaryChildContainer);
+//   moveChildren(flexContainer[0], primaryChildContainer);
+//   flexContainer[0].insertBefore(secondaryChildContainer, flexContainer[0].firstChild);
+//   flexContainer[0].insertBefore(primaryChildContainer, secondaryChildContainer);
 
-  const mainContainer = document.querySelector('.custom-cards-container');
-  if (mainContainer) {
-    mainContainer.insertBefore(primaryChildContainer.firstChild, mainContainer.firstChild);
-  }
-}
+//   const mainContainer = document.querySelector('.custom-cards-container');
+//   if (mainContainer) {
+//     mainContainer.insertBefore(primaryChildContainer.firstChild, mainContainer.firstChild);
+//   }
+// }
 
 // async function organizeMembersOnlyContainer() {
 //   const parentContainer = document.querySelectorAll('.custom-cards-container .default-content-wrapper');
