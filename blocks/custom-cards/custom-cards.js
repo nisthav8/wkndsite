@@ -1,8 +1,8 @@
 export default async function decorate(block) {
   try {
-    console.log("abc");
     const url = getURLFromBlock(block);
     const data = await fetchData(url);
+    console.log('data',data);
     const groupedData = groupDataByTemplate(data);
     renderTemplates(groupedData,block);
   } catch (error) {
@@ -11,7 +11,10 @@ export default async function decorate(block) {
 }
 
 async function fetchData(url) {
-  const response = await fetch(url);
+  console.log(url);
+  const response =await fetch(url);
+  console.log('r');
+  console.log('response',response);
   if (!response.ok) {
     throw new Error(`Error fetching the data: ${response.status}`);
   }
