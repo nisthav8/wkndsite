@@ -3,10 +3,11 @@ export default async function decorate(block) {
     const url = getURLFromBlock(block);
     const data = await fetchData(url);
     const groupedData = groupDataByTemplate(data);
-    renderTemplates(groupedData);
+    renderTemplates(groupedData,block);
   } catch (error) {
     console.error("Error fetching or processing data:", error);
   }
+}
 
 async function fetchData(url) {
   const response = await fetch(url);
@@ -32,7 +33,7 @@ function groupDataByTemplate(data) {
   }, {});
 }
 
-function renderTemplates(groupedData) {
+function renderTemplates(groupedData,block) {
   Object.entries(groupedData).forEach(([template, items]) => {
     const templateContainer = document.createElement("div");
     templateContainer.className = `container-${template}`;
@@ -85,7 +86,6 @@ function createCard(template, item) {
   });
 
   return card;
-}
 }
 
 // async function organizeFlexContainers() {
