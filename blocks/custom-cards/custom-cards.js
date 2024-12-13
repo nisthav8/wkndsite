@@ -47,7 +47,7 @@ function renderTemplates(groupedData) {
     if (targetBlock) {
       const existingContainer = block.querySelectorAll(`.container-${template}`)[0];
       if (!existingContainer) {
-        targetBlock.appendChild(templateContainer);
+        block.appendChild(templateContainer);
       }
     } else {
       console.warn(`No block found for template: ${template}`);
