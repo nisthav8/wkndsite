@@ -1,12 +1,12 @@
 export default async function decorate(block) {
-    const thirdDiv = block.children[2];
-    thirdDiv.classList.add('flex-primary-container');
-    const fourthDiv = block.children[3];
-    fourthDiv.classList.add('flex-secondary-container')
+    const primaryChild = block.children[2];
+    primaryChild.classList.add('flex-primary-container');
+    const secondaryChild = block.children[3];
+    secondaryChild.classList.add('flex-secondary-container')
     const flexContainer = document.createElement('div');
     flexContainer.classList.add('flex-container');
-    flexContainer.appendChild(thirdDiv);
-    flexContainer.appendChild(fourthDiv);
+    flexContainer.appendChild(primaryChild);
+    flexContainer.appendChild(secondaryChild);
     block.appendChild(flexContainer);
   }
   

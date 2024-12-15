@@ -74,15 +74,15 @@
     object-fit: cover;
     /* width:auto; */
    }
-@media (width >= 1024px) {
-    .members-only .flex-primary-container,.members-only .flex-secondary-container{
-      
-  }
-}
+
 .members-only > div:nth-child(2) > div > p:after{
     border-bottom: 2.5px solid var(--brandPrimary, #e5e5e3);
     content: "";
     display: block;
     margin: 70px 0;
     width: 100%;
+  }
+  .members-only #members-only{
+    font-weight: normal;
+    font-size:40px;
   }

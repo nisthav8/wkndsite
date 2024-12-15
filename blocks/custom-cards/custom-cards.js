@@ -1,5 +1,6 @@
 export default async function decorate(block) {
   try {
+
     const url = getURLFromBlock(block);
     const data = await fetchData(url);
     console.log('data',data);
@@ -12,8 +13,7 @@ export default async function decorate(block) {
 
 async function fetchData(url) {
   console.log(url);
-  const response =await fetch(url);
-  console.log('r');
+  const response = await fetch(url);
   console.log('response',response);
   if (!response.ok) {
     throw new Error(`Error fetching the data: ${response.status}`);
@@ -22,7 +22,7 @@ async function fetchData(url) {
 }
 
 function getURLFromBlock(block) {
-  return block.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
+  return  block.querySelector('a[href*=".json"]');
 }
 
 function groupDataByTemplate(data) {

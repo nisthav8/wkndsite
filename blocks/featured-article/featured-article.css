@@ -1,6 +1,7 @@
 .featured-article .flex-parent-container{
     display:flex;
     flex-direction: column;
+    padding:0;
     /* line-height: 2; */
     /* position:relative; */
 }
@@ -14,7 +15,7 @@
 .featured-article .secondary-container{
    /* flex:1; */
   background-color:#f1f0f0;
-  line-height:2;
+  line-height:0;
    
 }
 .featured-article .primary-container p:nth-of-type(1){
@@ -36,11 +37,11 @@
 }
 
 .featured-article .primary-container  p:nth-of-type(3) a{
-    font-size: 14px;
+    font-size: 12px;
     border-radius:0;
     background-color: #ffea00;
     color:black;
-    font-weight: 600;
+    font-weight:600;
     padding:14px 34px;
 
 }
@@ -68,4 +69,11 @@ height:500px;
         margin:0;
     }
    
+  }
+
+  .featured-article #magazine{
+    padding:0;
+    margin:0;
+    font-size:40px;
+    font-weight: normal;
   }
