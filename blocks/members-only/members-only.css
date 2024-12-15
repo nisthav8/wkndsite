@@ -83,6 +83,7 @@
     width: 100%;
   }
   .members-only #members-only{
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     font-weight: normal;
     font-size:40px;
   }

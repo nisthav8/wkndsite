@@ -61,7 +61,7 @@ height:500px;
     .featured-article .flex-parent-container{
         flex-direction:row-reverse;
     }
-     .featured-article.primary-container{
+     .featured-article .primary-container{
         background-color:#f1f0f0;
     }
     .featured-article .secondary-container p{
@@ -72,8 +72,10 @@ height:500px;
   }
 
   .featured-article #magazine{
+    font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
     padding:0;
-    margin:0;
+    margin-bottom: 13.5px;
+    margin-top: 27px;
     font-size:40px;
     font-weight: normal;
   }
