@@ -164,7 +164,8 @@ main > .section:nth-of-type(1){
     font-family: var(--fontFamilySansSerif, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif);
     font-weight: var(--fontWeightBold, 600);
     font-size: 14px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
+    color:#202020;
     /* padding-left:0px; */
 }
 
@@ -240,4 +241,41 @@ ol {
 
     }
 
+}
+.flex-parent-container > div:nth-child(2) > div > p:nth-child(2) > a.button{
+    background-color:white;
+    color:black;
+    padding:0;
+    margin:0;
+    font-size: 14px;
+    font-weight: 600;
+    color:#202020;
+    border-radius:0;
+}
+.flex-parent-container > div:nth-child(2) > div > p:nth-child(5) > a.button{
+    background-color: #202020;
+    border-radius:0;
+    font-size:14px;
+    padding:18px 24px;
+}
+.flex-parent-container > div:nth-child(2) > div > p:nth-child(3){
+    font-size:18px;
+    font-weight: 600;
+    padding-bottom:12px;
+    margin:0;
+}
+.flex-parent-container > div:nth-child(2) > div > ul:nth-child(4){
+    display: flex;
+    color: dimgray;
+    font-size:12px;
+    border-left:0;
+    margin:0;
+    padding:0;
+    height:0;
+    width:auto;
+    padding-bottom:10px;
+    background-color: white;
+}
+.guide-to-la-wrapper > div > div:nth-child(3) > div:nth-child(4) > p > strong{
+    font-size:16px;
 }
